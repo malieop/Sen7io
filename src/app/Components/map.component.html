@@ -1,0 +1,170 @@
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js'></script>
+<script src='http://maps.google.com/maps/api/js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+<body>
+
+  <h1>Adding a route</h1>
+  <agm-map [latitude]='lat' [longitude]='lng' (mapClick)='placeMarker($event)'>
+    <agm-marker *ngIf='marker_origin' [label]='label_origin' [latitude]='origin_marker_lat' [longitude]='origin_marker_lng'></agm-marker>
+    <agm-marker *ngIf='marker_destiny' [label]='label_destiny' [latitude]='destiny_marker_lat' [longitude]='destiny_marker_lng'></agm-marker>
+    <agm-direction *ngIf='coord_bool' [origin]='origin' [destination]='destination'>
+    </agm-direction>
+  </agm-map>
+
+<!--
+  <mat-list >
+    <mat-list-item>
+      <h1>Coordinates of the Origin</h1>
+          <h3>Ativate the origin marker:</h3>
+          <label class='switch'>
+            <input type='checkbox' [(ngModel)]='origem_bool'>
+            <span class='slider round'></span>
+          </label>
+
+          <h3>Latitude:</h3>
+
+
+          <input type='text' name='box' id='origin_lat' [(ngModel)]='origin_lat' required>
+
+
+          <h3>Longitude:</h3>
+
+
+          <input type='text' name='box' id='origin_lng' [(ngModel)]='origin_lng' required>
+    </mat-list-item>
+    <mat-divider [vertical]='true'></mat-divider>
+    <mat-list-item>
+      <h1>Coordinates of the Destiny</h1>
+          <h3>Ativate the destiny marker:</h3>
+          <label class='switch'>
+            <input type='checkbox' [(ngModel)]='destiny_bool'>
+            <span class='slider round'></span>
+          </label>
+          <div class='row'>
+            <h3>Latitude:</h3>
+          </div>
+          <div class='row'>
+
+            <input type='text' name='box' id='destiny_lat' value='' [(ngModel)]='destiny_lat' required>
+          </div>
+
+          <div class='row'>
+            <h3>Longitude:</h3>
+          </div>
+          <div class='row'>
+            <input type='text' name='box' id='destiny_lng' [(ngModel)]='destiny_lng' required>
+          </div>
+    </mat-list-item>
+  </mat-list>
+-->
+  <!--coordinates input-->
+
+  <section id='Input_coord'>
+    <div class='container-fluid'>
+        <mat-card>
+      <div class='row'>
+        <div class='col-lg-6'>
+
+          <h1>Coordinates of the Origin</h1>
+          <h3>Ativate the origin marker:</h3>
+          <label class='switch'>
+            <input type='checkbox' [(ngModel)]='origem_bool'>
+            <span class='slider round'></span>
+          </label>
+
+          <h3>Latitude:</h3>
+
+
+          <input type='text' name='box' id='origin_lat' [(ngModel)]='origin_lat' required>
+
+
+          <h3>Longitude:</h3>
+
+
+          <input type='text' name='box' id='origin_lng' [(ngModel)]='origin_lng' required>
+
+
+        </div>
+        <div class='col-lg-6'>
+
+          <h1>Coordinates of the Destiny</h1>
+          <h3>Ativate the destiny marker:</h3>
+          <label class='switch'>
+            <input type='checkbox' [(ngModel)]='destiny_bool'>
+            <span class='slider round'></span>
+          </label>
+          <div class='row'>
+            <h3>Latitude:</h3>
+          </div>
+          <div class='row'>
+
+            <input type='text' name='box' id='destiny_lat' value='' [(ngModel)]='destiny_lat' required>
+          </div>
+
+          <div class='row'>
+            <h3>Longitude:</h3>
+          </div>
+          <div class='row'>
+            <input type='text' name='box' id='destiny_lng' [(ngModel)]='destiny_lng' required>
+          </div>
+
+        </div>
+
+      </div>
+
+      <button mat-raised-button color='accent'  id='showroute' (click)='getRoute()'>Show route </button>
+
+ <!-- More information inputs (like persons in car)-->
+        <form (submit)='getDirection()' #loginForm='ngForm' *ngIf='!isLoading'>
+          <mat-form-field>
+            <h3>How many people went in the car?(including driver) </h3>
+            <input matInput name='number' type='number' min = '1' max='9' placeholder='Persons in the car' [(ngModel)]='peopleNumber' required>
+          </mat-form-field>
+
+          <h3>What was the intention of this route ?</h3>
+          <div>
+          <mat-radio-group [(ngModel)]="routeIntention">
+            <mat-radio-button value='work' [checked]='true'>Work</mat-radio-button>
+            <mat-radio-button value='kids' >Kids School</mat-radio-button>
+            <mat-radio-button value='recreation'>Recreation </mat-radio-button>
+          </mat-radio-group>
+          </div>
+
+
+          <button mat-raised-button color='accent' type='submit'>Save Route</button>
+        </form>
+      </mat-card>
+
+      <!--
+      <h1>More information</h1>
+      <div class='row'>
+
+        <div class='col-lg-6'>
+          <input type='number' min='1' max='9' [(ngModel)]='people_number' required>
+        </div>
+      </div>
+      <div class='row'>
+
+        <div class='col-lg-6'>
+          <form action=''>
+            <input type='radio' name='route_info' value='work' checked> Work
+            <br>
+            <input type='radio' name='route_info' value='kids'> Kids School
+            <br>
+            <input type='radio' name='route_info' value='recreation'> Recreation
+
+          </form>
+        </div>
+      </div>
+      <div class='row'>
+        <button id='showroute' (click)='getRoute()'>Show route </button>
+        <button id='saveroute' (click)='getDirection()'> Save Route</button>
+      </div>
+    -->
+    </div>
+  </section>
+
+</body>

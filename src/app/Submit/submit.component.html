@@ -1,0 +1,8 @@
+<mat-card>
+  <h2>Personal choose.</h2>
+  <div>
+    <mat-checkbox [(ngModel)]="routes_coords_checker"> Check if you let us use your coordinates.</mat-checkbox>
+  </div>
+
+  <button mat-raised-button color='accent' type='submit' (click)='submitInfo()' >Submit</button>
+</mat-card>

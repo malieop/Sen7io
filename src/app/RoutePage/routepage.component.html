@@ -1,0 +1,33 @@
+
+<nav  class="navbar navbar-expand-lg ">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" (click)='changeDay(2)' >Monday</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)='changeDay(3)'>Tuesday</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)='changeDay(4)'>Wednesday</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)='changeDay(5)'>Thursday</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)='changeDay(6)'>Friday</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " (click)='changeDay(7)'>Saturday</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)='changeDay(8)'>Sunday</a>
+      </li>
+  </ul>
+  </div>
+</nav>
+
+<app-rotas-component *ngIf="show_route"></app-rotas-component>
+
+
+<app-map-component *ngIf="add_route"></app-map-component>

@@ -1,0 +1,69 @@
+
+<h1 align='center'> Routes</h1>
+<!--
+<table mat-table #table [dataSource]="routes" class="mat-elevation-z8">
+<ng-container matColumnDef="origin">
+    <th mat-header-cell *matHeaderCellDef> Begin of the Route </th>
+    <td mat-cell *matCellDef="let element"> {{element.origin}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="destination">
+    <th mat-header-cell *matHeaderCellDef> End of the Route</th>
+    <td mat-cell *matCellDef="let element"> {{element.destination}} </td>
+  </ng-container>
+  <ng-container matColumnDef="distance">
+    <th mat-header-cell *matHeaderCellDef> Distance </th>
+    <td mat-cell *matCellDef="let element"> {{element.distance}} </td>
+  </ng-container>
+  <ng-container matColumnDef="duration">
+    <th mat-header-cell *matHeaderCellDef> Estimated Time </th>
+    <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+  </ng-container>
+
+ -<ng-container matColumnDef="options">
+    <th mat-header-cell *matHeaderCellDef> Options </th>
+    <td mat-cell *matCellDef="let element; let i = index"> <button (click)='addEqualRoute(i)'> <span class='glyphicon glyphicon-repeat'></span></button>
+      <button (click)='addBackRoute(i)'> <span class='glyphicon glyphicon-refresh'></span></button></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['origin' ,'destination','distance', 'duration', 'options']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['origin' ,'destination','distance', 'duration', 'options']"></tr>
+
+</table>-->
+
+
+<table class="table" id="myTable">
+  <thead>
+    <tr>
+
+      <th><h1>Type of Route</h1> </th>
+      <th><h1>Begin of the Route</h1></th>
+      <th><h1>End of the Route</h1></th>
+      <th><h1>Distance</h1></th>
+      <th><h1>Estimated time</h1></th>
+      <th><h1>Options</h1></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of routes; let i= index"  >
+      <td></td>
+      <td>{{item.origin}}</td>
+      <td>{{item.destination}}</td>
+      <td>{{item.distance}}</td>
+      <td>{{item.duration}}</td>
+      <td><button (click)='addEqualRoute(i)'> <span class='glyphicon glyphicon-repeat'></span></button>
+        <button (click)='addBackRoute(i)'> <span class='glyphicon glyphicon-refresh'></span></button>
+        <button (click)='deleteRoute(i)'><span class='glyphicon glyphicon-remove'></span></button>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <mat-button-toggle  (click)="showRouteList()" >see Route</mat-button-toggle>
+</div>
+<!--<app-bottom-sheet-list-component></app-bottom-sheet-list-component>-->
+<div>
+  <mat-button-toggle id='add' (click)="addRoute()" >Add Route</mat-button-toggle>
+</div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
