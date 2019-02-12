@@ -87,7 +87,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCm2UyAl3e8FoGBxdGt_ASXqbXuRxQDbmc'
+      apiKey: '*************GOOGLE API*****************'
     }),
     AgmDirectionModule,
     BrowserAnimationsModule,
